@@ -1,0 +1,104 @@
+input.kafihi-calendar {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 150px;       /* Input width */
+  cursor: pointer;
+}
+
+.kafihi-popup {
+  position: absolute;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  z-index: 99999999999999999999;
+  display: none;
+
+  /* Set default width */
+  width: 280px !important;       /* Default size of date picker */
+  max-width: 95vw;    /* Never exceed 95% of viewport width */
+  box-sizing: border-box;
+}
+
+
+/* Header - Month & Year Buttons */
+.kafihi-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.kafihi-header select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  font-size: 14px;
+  background: #f3f4f6;
+  transition: background 0.2s;
+  flex: 1;
+  min-width: 50px;
+}
+.kafihi-header select:hover { background: #e5e7eb; }
+
+/* Weekdays & Days */
+.kafihi-weekdays, .kafihi-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 4px;
+}
+.kafihi-weekdays div { font-weight:600; font-size:12px; }
+.kafihi-days div {
+  cursor:pointer; 
+  border-radius:6px; 
+  padding:6px 0; 
+  transition:.2s; 
+  aspect-ratio:1/1; 
+  font-size: 12px;
+}
+.kafihi-days div:hover { background:#3b82f6; color:#fff; }
+.kafihi-days div.today { background:#bfdbfe; font-weight:600; }
+.kafihi-days div.disabled { color:#d1d5db; cursor:not-allowed; }
+.kafihi-days div.weekend { color:#ef4444; }
+
+/* Footer Buttons */
+.kafihi-footer {
+  display:flex;
+  justify-content:space-between;
+  margin-top:8px;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.kafihi-footer button {
+  font-size: 12px;
+  padding:4px 8px;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+  transition:0.2s;
+  min-width:60px;
+  color:#fff;
+  flex: 1;
+}
+
+.kafihi-footer button.clear { background: #f87171; }
+.kafihi-footer button.clear:hover { background: #ef4444; }
+.kafihi-footer button.today { background: #34d399; }
+.kafihi-footer button.today:hover { background: #10b981; }
+.kafihi-footer button.close { background: #60a5fa; }
+.kafihi-footer button.close:hover { background: #3b82f6; }
+
+/* Responsive Adjustments */
+@media(max-width:400px){
+  .kafihi-popup{
+    padding:8px;
+    font-size:13px;
+    width: 95vw;  /* Fit small screens */
+  }
+  .kafihi-days div{padding:6px 0; font-size:11px;}
+  .kafihi-header select{padding:4px 6px; font-size:12px;}
+  .kafihi-footer button{padding:4px; font-size:11px;}
+}
